@@ -3,1001 +3,1732 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Angeli — everywhere</title>
-<meta name="description" content="Angeli (Angel / Angie) — Filipino freelancer, virtual assistant, and travel storyteller. Cinematic content, polished operations, quiet creative direction." />
-
+<title>Angeli — Virtual Assistant & Travel Storyteller</title>
+<meta name="description" content="Filipino Virtual Assistant, Executive Assistant, and creator. Administration, operations, client support, and cinematic UGC for founders and brands." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter+Tight:wght@300;400;500&family=Italiana&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Marcellus&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #f4ede1;
-    --paper-warm: #ede2cf;
-    --ink: #2b231b;
-    --ink-soft: #4a3f33;
-    --muted: #8b7a64;
-    --clay: #c89b78;
-    --terracotta: #a16a4d;
-    --sage: #8a8568;
-    --cream: #faf3e6;
-    --line: rgba(43, 35, 27, 0.18);
-    --line-soft: rgba(43, 35, 27, 0.08);
+    /* Blue-dominant palette — her favorite color */
+    --paper: #f7f5ef;        /* warm cream paper */
+    --paper-tint: #efece3;
+    --ink: #0f1d3a;          /* deep navy, primary text */
+    --ink-soft: #3d4a66;
+    --indigo: #1e3a8a;       /* primary blue */
+    --azure: #2563eb;        /* accent CTA blue */
+    --sky: #7ba3d8;          /* light accent */
+    --gold: #b08a4f;         /* warm metallic accent (sparingly) */
+    --rule: #d8d2c1;
+    --rule-soft: #e8e3d4;
 
-    --serif: 'Fraunces', 'Times New Roman', serif;
-    --display: 'Italiana', 'Fraunces', serif;
-    --sans: 'Inter Tight', -apple-system, sans-serif;
+    --serif-display: 'Marcellus', serif;
+    --serif-body: 'Cormorant Garamond', 'Times New Roman', serif;
+    --sans: 'Manrope', system-ui, sans-serif;
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
 
   body {
     background: var(--paper);
     color: var(--ink);
-    font-family: var(--serif);
-    font-weight: 300;
-    line-height: 1.6;
-    overflow-x: hidden;
+    font-family: var(--serif-body);
+    font-size: 19px;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
 
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-    background-image:
-      radial-gradient(circle at 25% 30%, rgba(161, 106, 77, 0.06) 0%, transparent 50%),
-      radial-gradient(circle at 75% 70%, rgba(138, 133, 104, 0.05) 0%, transparent 50%);
-  }
+  ::selection { background: var(--indigo); color: var(--paper); }
 
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 2;
-    opacity: 0.35;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.17 0 0 0 0 0.14 0 0 0 0 0.10 0 0 0 0.18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-    mix-blend-mode: multiply;
+  /* — TOP BAR — */
+  .topbar {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 10px 32px;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 500;
   }
+  .topbar a {
+    color: var(--sky);
+    text-decoration: none;
+    margin-left: 8px;
+  }
+  .topbar a:hover { color: var(--paper); }
 
-  /* ============ NAV ============ */
+  /* — NAV — */
   nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    padding: 1.4rem 2.5rem;
+    position: sticky;
+    top: 0;
+    background: rgba(247, 245, 239, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule-soft);
+    padding: 18px 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    backdrop-filter: blur(8px);
-    background: rgba(244, 237, 225, 0.7);
-    border-bottom: 1px solid var(--line-soft);
   }
 
-  .nav-mark {
-    font-family: var(--display);
-    font-size: 1.2rem;
+  nav .mark {
+    font-family: var(--serif-display);
+    font-size: 20px;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  nav .mark .accent {
+    font-family: var(--serif-body);
+    font-style: italic;
+    color: var(--indigo);
+    font-weight: 500;
+  }
+
+  nav ul {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+  }
+
+  nav a {
+    font-family: var(--sans);
+    font-size: 12px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--ink);
-  }
-
-  .nav-mark span { color: var(--terracotta); font-style: italic; font-family: var(--serif); text-transform: lowercase; letter-spacing: 0; }
-
-  .nav-links {
-    display: flex;
-    gap: 2.2rem;
-    list-style: none;
-    font-family: var(--sans);
-    font-size: 0.78rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-
-  .nav-links a {
     color: var(--ink-soft);
     text-decoration: none;
-    position: relative;
-    transition: color 0.3s;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  nav a:hover { color: var(--indigo); }
+
+  nav .nav-cta {
+    background: var(--azure);
+    color: var(--paper);
+    padding: 11px 22px;
+    border-radius: 2px;
+    letter-spacing: 0.15em;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  nav .nav-cta:hover {
+    background: var(--indigo);
+    color: var(--paper);
+    transform: translateY(-1px);
   }
 
-  .nav-links a::after {
-    content: "";
-    position: absolute;
-    left: 0; bottom: -4px;
-    width: 0; height: 1px;
-    background: var(--terracotta);
-    transition: width 0.4s ease;
-  }
-
-  .nav-links a:hover { color: var(--terracotta); }
-  .nav-links a:hover::after { width: 100%; }
-
-  @media (max-width: 720px) {
-    nav { padding: 1rem 1.25rem; }
-    .nav-links { gap: 1.1rem; font-size: 0.65rem; }
-  }
-
-  /* ============ HERO ============ */
-  .hero {
-    min-height: 100vh;
-    padding: 8rem 2.5rem 4rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 3rem;
-    position: relative;
-    z-index: 3;
-  }
-
-  .hero-eyebrow {
+  /* — Buttons — */
+  .btn {
+    display: inline-block;
     font-family: var(--sans);
-    font-size: 0.72rem;
-    letter-spacing: 0.32em;
+    font-size: 12px;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 2rem;
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary {
+    background: var(--azure);
+    color: var(--paper);
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25);
+  }
+  .btn-primary:hover {
+    background: var(--indigo);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(30, 58, 138, 0.35);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    border: 1.5px solid var(--ink);
+  }
+  .btn-secondary:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .btn-light {
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .btn-light:hover { background: var(--sky); color: var(--paper); }
+
+  /* — Section ornament — */
+  .ornament {
+    text-align: center;
+    color: var(--gold);
+    font-size: 18px;
+    margin: 0 auto 24px;
+    letter-spacing: 0.5em;
+    padding-left: 0.5em;
+  }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--indigo);
+    font-weight: 600;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .roman {
+    font-family: var(--serif-display);
+    font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    display: block;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  /* — HERO — */
+  .hero {
+    padding: 80px 32px 100px;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(123, 163, 216, 0.18) 0%, transparent 55%),
+      radial-gradient(ellipse at 90% 100%, rgba(30, 58, 138, 0.10) 0%, transparent 55%),
+      var(--paper);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-portrait-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+    position: relative;
+  }
+
+  .hero-portrait {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--indigo) 0%, var(--azure) 50%, var(--sky) 100%);
     display: flex;
     align-items: center;
-    gap: 1rem;
+    justify-content: center;
+    font-family: var(--serif-display);
+    color: var(--paper);
+    font-size: 56px;
+    box-shadow: 0 12px 40px rgba(15, 29, 58, 0.20);
+    border: 3px solid var(--paper);
+    position: relative;
+  }
+  .hero-portrait::after {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border-radius: 50%;
+    border: 1px solid var(--rule);
+    opacity: 0.6;
   }
 
-  .hero-eyebrow::before {
-    content: "";
-    width: 40px; height: 1px;
-    background: var(--clay);
-  }
-
-  .hero-title {
-    font-family: var(--display);
-    font-size: clamp(3.5rem, 9vw, 7.5rem);
-    line-height: 0.92;
-    color: var(--ink);
-    letter-spacing: -0.01em;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-title em {
-    font-family: var(--serif);
-    font-style: italic;
-    font-weight: 300;
-    color: var(--terracotta);
-    font-size: 0.55em;
-    display: block;
-    letter-spacing: 0.02em;
-    margin-top: 0.4rem;
-  }
-
-  .hero-lead {
-    font-family: var(--serif);
-    font-size: 1.15rem;
-    font-style: italic;
-    font-weight: 300;
+  .hero-tagline {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
     color: var(--ink-soft);
-    max-width: 38ch;
-    line-height: 1.6;
-    margin-bottom: 2.5rem;
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+
+  .hero h1 {
+    font-family: var(--serif-display);
+    font-size: clamp(42px, 6vw, 78px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+    color: var(--ink);
+  }
+
+  .hero h1 .italic {
+    font-family: var(--serif-body);
+    font-style: italic;
+    color: var(--indigo);
+    font-weight: 500;
+  }
+
+  .hero-subtitle {
+    font-family: var(--serif-body);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--ink-soft);
+    margin-bottom: 32px;
+  }
+
+  .hero-credentials {
+    max-width: 620px;
+    margin: 0 auto 40px;
+    color: var(--ink-soft);
+    font-size: 19px;
+    line-height: 1.7;
+  }
+
+  .hero-credentials strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 56px;
   }
 
   .hero-meta {
     display: flex;
-    gap: 2rem;
+    justify-content: center;
+    gap: 48px;
     flex-wrap: wrap;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    max-width: 820px;
+    margin: 0 auto;
     font-family: var(--sans);
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
-    color: var(--muted);
-  }
-
-  .hero-meta div { display: flex; align-items: center; gap: 0.5rem; }
-  .hero-meta div::before {
-    content: "·";
-    color: var(--terracotta);
-    font-size: 1.4rem;
-    line-height: 0;
-  }
-  .hero-meta div:first-child::before { display: none; }
-
-  /* hero visual — composed frame */
-  .hero-visual {
-    position: relative;
-    height: 70vh;
-    min-height: 480px;
-  }
-
-  .frame {
-    position: absolute;
-    border: 1px solid var(--line);
-    overflow: hidden;
-  }
-
-  .frame-1 {
-    top: 0; right: 0;
-    width: 70%; height: 75%;
-    background:
-      linear-gradient(180deg, #d8b48f 0%, #c89878 50%, #6b5544 100%);
-  }
-
-  .frame-1 .sun {
-    position: absolute;
-    top: 22%; left: 28%;
-    width: 70px; height: 70px;
-    border-radius: 50%;
-    background: radial-gradient(circle, var(--cream) 30%, rgba(250,243,230,0.4) 70%, transparent 100%);
-    box-shadow: 0 0 100px rgba(250, 243, 230, 0.7);
-  }
-
-  .frame-1 .ridge {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 55%;
-    background: rgba(43, 35, 27, 0.55);
-    clip-path: polygon(0 100%, 0 70%, 12% 55%, 22% 68%, 35% 40%, 48% 60%, 60% 35%, 72% 55%, 85% 45%, 100% 60%, 100% 100%);
-  }
-
-  .frame-1 .ridge-back {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 45%;
-    background: rgba(43, 35, 27, 0.3);
-    clip-path: polygon(0 100%, 0 80%, 18% 65%, 32% 75%, 45% 50%, 60% 70%, 75% 55%, 90% 65%, 100% 75%, 100% 100%);
-  }
-
-  .frame-2 {
-    bottom: 5%; left: 0;
-    width: 50%; height: 55%;
-    background:
-      linear-gradient(135deg, #e8d4ba 0%, #c89b78 100%);
-    box-shadow: 8px 8px 0 var(--paper);
-    z-index: 2;
-  }
-
-  .frame-2 .figure {
-    position: absolute;
-    bottom: 0; left: 50%;
-    transform: translateX(-50%);
-    width: 35%; height: 65%;
-    background: rgba(43, 35, 27, 0.7);
-    clip-path: polygon(40% 0, 60% 0, 65% 25%, 80% 35%, 75% 100%, 25% 100%, 20% 35%, 35% 25%);
-  }
-
-  .frame-2 .horizon {
-    position: absolute;
-    bottom: 25%; left: 0; right: 0;
-    height: 1px;
-    background: rgba(43, 35, 27, 0.25);
-  }
-
-  .film-strip {
-    position: absolute;
-    right: -40px;
-    top: 10%;
-    bottom: 10%;
-    width: 24px;
-    border-left: 1px solid var(--line);
-    border-right: 1px solid var(--line);
-    background:
-      var(--paper),
-      repeating-linear-gradient(
-        0deg,
-        transparent 0,
-        transparent 8px,
-        var(--line) 8px,
-        var(--line) 9px
-      );
-    background-color: var(--paper);
-    writing-mode: vertical-rl;
-    font-family: var(--sans);
-    font-size: 0.6rem;
-    letter-spacing: 0.4em;
+    font-size: 11px;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--muted);
-    padding: 0.5rem 0;
+    color: var(--ink-soft);
+  }
+  .hero-meta strong {
+    display: block;
+    color: var(--ink);
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 12px;
+  }
+
+  /* — Platforms strip (logo wall analog) — */
+  .platforms {
+    background: var(--paper-tint);
+    padding: 36px 32px;
+    border-top: 1px solid var(--rule-soft);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .platforms-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 56px;
+    flex-wrap: wrap;
+  }
+  .platforms-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+  .platform {
+    font-family: var(--serif-display);
+    font-size: 18px;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+    opacity: 0.8;
+    transition: opacity 0.3s ease, color 0.3s ease;
+  }
+  .platform .at { color: var(--indigo); font-style: italic; font-family: var(--serif-body); }
+  .platform:hover { opacity: 1; color: var(--indigo); }
+
+  /* — Sections — */
+  section {
+    padding: 110px 32px;
+  }
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-family: var(--serif-display);
+    font-size: clamp(34px, 4.5vw, 54px);
+    line-height: 1.1;
+    letter-spacing: -0.005em;
     text-align: center;
-    z-index: 3;
+    margin-bottom: 56px;
+    color: var(--ink);
+  }
+  h2 .italic {
+    font-family: var(--serif-body);
+    font-style: italic;
+    color: var(--indigo);
+    font-weight: 500;
+  }
+
+  /* — ABOUT — */
+  .about {
+    background: var(--paper);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  .about-card {
+    background: var(--paper-tint);
+    padding: 48px 40px;
+    border: 1px solid var(--rule-soft);
+    text-align: center;
+    position: sticky;
+    top: 100px;
+  }
+
+  .about-card .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--indigo), var(--azure));
+    color: var(--paper);
+    font-family: var(--serif-display);
+    font-size: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 6px 20px rgba(15, 29, 58, 0.15);
   }
 
-  @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; padding: 6rem 1.25rem 3rem; }
-    .hero-visual { height: 50vh; min-height: 360px; margin-top: 2rem; }
-    .film-strip { display: none; }
+  .about-card h3 {
+    font-family: var(--serif-display);
+    font-size: 28px;
+    margin-bottom: 4px;
   }
 
-  /* ============ MARQUEE ============ */
-  .marquee {
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    padding: 1.4rem 0;
-    overflow: hidden;
-    background: var(--paper-warm);
-    position: relative;
-    z-index: 3;
-  }
-
-  .marquee-track {
-    display: flex;
-    gap: 3.5rem;
-    white-space: nowrap;
-    animation: scroll 50s linear infinite;
-    font-family: var(--display);
-    font-size: 1.6rem;
-    letter-spacing: 0.04em;
+  .about-card .aliases {
+    font-family: var(--serif-body);
+    font-style: italic;
     color: var(--ink-soft);
-    padding-left: 3.5rem;
+    font-size: 16px;
+    margin-bottom: 20px;
   }
 
-  .marquee-track span { display: flex; align-items: center; gap: 3.5rem; }
-  .marquee-track span::after {
-    content: "✦";
-    color: var(--terracotta);
-    font-size: 0.8em;
-  }
-
-  @keyframes scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  /* ============ SECTIONS ============ */
-  section {
-    padding: 7rem 2.5rem;
-    position: relative;
-    z-index: 3;
-  }
-
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    gap: 2rem;
-    margin-bottom: 4rem;
-    flex-wrap: wrap;
-  }
-
-  .section-num {
+  .about-card .role {
     font-family: var(--sans);
-    font-size: 0.75rem;
-    letter-spacing: 0.3em;
-    color: var(--terracotta);
+    font-size: 11px;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
+    color: var(--indigo);
+    font-weight: 600;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    margin-bottom: 8px;
+  }
+  .about-card .role-detail {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    font-style: italic;
+  }
+  .about-card .role + .role-detail { margin-bottom: 16px; }
+  .about-card .role:not(:first-of-type) {
+    margin-top: 16px;
+    padding-top: 16px;
   }
 
-  .section-title {
-    font-family: var(--display);
-    font-size: clamp(2.2rem, 5vw, 3.8rem);
-    color: var(--ink);
-    letter-spacing: -0.005em;
-    line-height: 1;
+  .about-prose h2 {
+    text-align: left;
+    margin-bottom: 32px;
   }
-
-  .section-title em { font-family: var(--serif); font-style: italic; font-weight: 300; color: var(--terracotta); }
-
-  /* ============ ABOUT ============ */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 5rem;
-    align-items: start;
-    max-width: 1300px;
-    margin: 0 auto;
+  .about-prose .roman, .about-prose .ornament {
+    text-align: left;
+    padding-left: 0;
+    margin-left: 0;
   }
+  .about-prose .ornament { letter-spacing: 0.4em; }
 
   .about-prose p {
-    font-size: 1.15rem;
-    color: var(--ink-soft);
-    margin-bottom: 1.4rem;
-    line-height: 1.7;
+    font-size: 20px;
+    line-height: 1.75;
+    margin-bottom: 24px;
+    color: var(--ink);
   }
 
-  .about-prose p:first-child::first-letter {
-    font-family: var(--display);
-    font-size: 4.2rem;
+  .about-prose p:first-of-type::first-letter {
+    font-family: var(--serif-display);
+    font-size: 64px;
     float: left;
     line-height: 0.9;
-    padding: 0.3rem 0.6rem 0 0;
-    color: var(--terracotta);
+    padding: 8px 14px 0 0;
+    color: var(--indigo);
   }
 
   .about-prose em {
-    color: var(--terracotta);
     font-style: italic;
+    color: var(--indigo);
   }
 
-  .about-side {
-    border-left: 1px solid var(--line);
-    padding-left: 2.5rem;
-  }
-
-  .pull-quote {
-    font-family: var(--display);
-    font-size: 1.7rem;
-    line-height: 1.3;
-    color: var(--ink);
-    margin-bottom: 2rem;
-  }
-
-  .pull-quote::before {
-    content: "“";
-    font-family: var(--display);
-    font-size: 4rem;
-    color: var(--terracotta);
-    line-height: 0;
-    vertical-align: -0.4em;
-    margin-right: 0.2rem;
-  }
-
-  .stat-row {
+  .credentials-strip {
+    margin-top: 32px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-top: 3rem;
-    padding-top: 2.5rem;
-    border-top: 1px solid var(--line-soft);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 28px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .credentials-strip .stat {
+    text-align: center;
+  }
+  .credentials-strip .num {
+    font-family: var(--serif-display);
+    font-size: 32px;
+    color: var(--indigo);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .credentials-strip .label {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
   }
 
-  .stat-num {
-    font-family: var(--display);
-    font-size: 2.4rem;
-    color: var(--terracotta);
+  /* — SERVICES — */
+  .services {
+    background: var(--paper-tint);
+    border-top: 1px solid var(--rule-soft);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 56px;
+  }
+
+  .service-card {
+    background: var(--paper);
+    border: 1px solid var(--rule-soft);
+    padding: 40px 36px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    position: relative;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(15, 29, 58, 0.10);
+    border-color: var(--sky);
+  }
+
+  .service-num {
+    font-family: var(--serif-display);
+    font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .service-num::before {
+    content: '';
+    width: 32px; height: 1px;
+    background: var(--gold);
+  }
+
+  .service-card h3 {
+    font-family: var(--serif-display);
+    font-size: 26px;
+    margin-bottom: 4px;
+    color: var(--ink);
+  }
+  .service-card h3 .italic {
+    font-family: var(--serif-body);
+    font-style: italic;
+    color: var(--indigo);
+    font-weight: 500;
+  }
+
+  .service-level {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--azure);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .service-card p {
+    color: var(--ink-soft);
+    font-size: 17px;
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  .service-card .for {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 600;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule-soft);
+  }
+
+  /* — TESTIMONIALS — */
+  .testimonials {
+    background: var(--paper);
+  }
+
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .endorsement {
+    background: var(--paper-tint);
+    border: 1px solid var(--rule-soft);
+    padding: 40px 36px;
+    position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .endorsement:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(15, 29, 58, 0.08);
+  }
+
+  .endorsement::before {
+    content: '"';
+    position: absolute;
+    top: 12px; left: 24px;
+    font-family: var(--serif-display);
+    font-size: 80px;
+    color: var(--sky);
+    opacity: 0.4;
     line-height: 1;
   }
 
-  .stat-label {
-    font-family: var(--sans);
-    font-size: 0.72rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-top: 0.5rem;
-  }
-
-  @media (max-width: 900px) {
-    section { padding: 4.5rem 1.25rem; }
-    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .about-side { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 2.5rem; }
-  }
-
-  /* ============ SKILLS ============ */
-  #craft { background: var(--paper-warm); }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 0;
-    max-width: 1300px;
-    margin: 0 auto;
-    border-top: 1px solid var(--line);
-    border-left: 1px solid var(--line);
-  }
-
-  .skill-card {
-    border-right: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    padding: 2.5rem 2rem;
-    transition: background 0.4s ease;
-    position: relative;
-  }
-
-  .skill-card:hover { background: var(--paper); }
-
-  .skill-num {
-    font-family: var(--sans);
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    color: var(--terracotta);
-    margin-bottom: 1.2rem;
-  }
-
-  .skill-name {
-    font-family: var(--display);
-    font-size: 1.6rem;
-    color: var(--ink);
-    margin-bottom: 0.4rem;
-    letter-spacing: 0.005em;
-  }
-
-  .skill-level {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 0.95rem;
-    color: var(--terracotta);
-    margin-bottom: 1rem;
-  }
-
-  .skill-desc {
-    font-family: var(--serif);
-    font-size: 0.95rem;
-    color: var(--ink-soft);
+  .endorsement-text {
+    font-size: 19px;
     line-height: 1.65;
-  }
-
-  /* ============ JOURNAL ============ */
-  .journal-entry {
-    max-width: 880px;
-    margin: 0 auto 4rem;
-    padding-bottom: 4rem;
-    border-bottom: 1px solid var(--line-soft);
-  }
-
-  .journal-entry:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
-
-  .journal-meta {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    font-family: var(--sans);
-    font-size: 0.72rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .journal-meta span { color: var(--terracotta); font-size: 1.1rem; }
-
-  .journal-title {
-    font-family: var(--display);
-    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
     color: var(--ink);
-    margin-bottom: 1rem;
-    line-height: 1.15;
-  }
-
-  .journal-body {
-    font-size: 1.05rem;
-    color: var(--ink-soft);
-    line-height: 1.75;
-    font-family: var(--serif);
-  }
-
-  .journal-body em { color: var(--terracotta); font-style: italic; }
-
-  /* ============ INTERESTS ============ */
-  #interests { background: var(--paper-warm); }
-
-  .interests-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    max-width: 900px;
-  }
-
-  .tag {
-    font-family: var(--display);
-    font-size: 1.4rem;
-    padding: 0.6rem 1.4rem;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    background: var(--paper);
-    color: var(--ink);
-    transition: all 0.3s ease;
-    cursor: default;
-  }
-
-  .tag:hover {
-    background: var(--terracotta);
-    color: var(--cream);
-    border-color: var(--terracotta);
-    transform: translateY(-2px);
-  }
-
-  /* ============ CONTACT ============ */
-  #contact {
-    background: var(--ink);
-    color: var(--cream);
-    padding-top: 8rem;
-    padding-bottom: 6rem;
-    position: relative;
-  }
-
-  #contact::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(circle at 80% 20%, rgba(161, 106, 77, 0.25) 0%, transparent 55%),
-      radial-gradient(circle at 15% 80%, rgba(138, 133, 104, 0.15) 0%, transparent 50%);
-    pointer-events: none;
-  }
-
-  .contact-inner {
-    max-width: 1100px;
-    margin: 0 auto;
+    font-style: italic;
+    margin-bottom: 28px;
     position: relative;
     z-index: 2;
   }
 
-  .contact-eyebrow {
-    font-family: var(--sans);
-    font-size: 0.72rem;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--clay);
-    margin-bottom: 1.5rem;
+  .endorsement-attribution {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule-soft);
   }
 
-  .contact-headline {
-    font-family: var(--display);
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    line-height: 1;
-    color: var(--cream);
-    margin-bottom: 3rem;
+  .endorsement-avatar {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--indigo), var(--azure));
+    color: var(--paper);
+    font-family: var(--serif-display);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
   }
+  .endorsement-avatar.alt-1 { background: linear-gradient(135deg, var(--azure), var(--sky)); }
+  .endorsement-avatar.alt-2 { background: linear-gradient(135deg, #2c4a7c, var(--indigo)); }
+  .endorsement-avatar.alt-3 { background: linear-gradient(135deg, var(--gold), #8a6b3b); }
 
-  .contact-headline em {
-    font-family: var(--serif);
+  .endorsement-name {
+    font-family: var(--serif-display);
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .endorsement-role {
+    font-family: var(--serif-body);
+    font-size: 14px;
     font-style: italic;
-    font-weight: 300;
-    color: var(--clay);
+    color: var(--ink-soft);
+    line-height: 1.4;
+  }
+
+  /* — Mid-page CTA Band — */
+  .cta-band {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 64px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.25) 0%, transparent 40%),
+      radial-gradient(circle at 80% 50%, rgba(123, 163, 216, 0.15) 0%, transparent 40%);
+  }
+  .cta-band-inner {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .cta-band h2 {
+    color: var(--paper);
+    margin-bottom: 12px;
+    font-size: clamp(28px, 4vw, 44px);
+  }
+  .cta-band h2 .italic { color: var(--sky); }
+  .cta-band p {
+    color: rgba(247, 245, 239, 0.8);
+    margin-bottom: 32px;
+    font-size: 19px;
+    font-style: italic;
+  }
+  .cta-band .btn-primary {
+    background: var(--azure);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+  }
+  .cta-band .btn-primary:hover {
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  /* — JOURNEYS / Recent — */
+  .journeys {
+    background: var(--paper-tint);
+    border-top: 1px solid var(--rule-soft);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+
+  .journey {
+    display: grid;
+    grid-template-columns: 90px 2fr 1fr;
+    gap: 40px;
+    padding: 36px 0;
+    border-top: 1px solid var(--rule);
+    align-items: baseline;
+    transition: padding 0.4s ease;
+  }
+  .journey:last-of-type { border-bottom: 1px solid var(--rule); }
+  .journey:hover { padding-left: 16px; padding-right: 16px; background: var(--paper); }
+
+  .journey-num {
+    font-family: var(--serif-display);
+    font-size: 20px;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+
+  .journey-title {
+    font-family: var(--serif-display);
+    font-size: 24px;
+    line-height: 1.25;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .journey-title .italic {
+    font-family: var(--serif-body);
+    font-style: italic;
+    color: var(--indigo);
+    font-weight: 500;
+  }
+  .journey-desc {
+    font-size: 16px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .journey-tag {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--azure);
+    font-weight: 600;
+    text-align: right;
+  }
+
+  /* — KIT / Toolkit — */
+  .kit {
+    background: var(--paper);
+  }
+  .kit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    background: var(--rule-soft);
+    border: 1px solid var(--rule-soft);
+  }
+  .kit-cell {
+    background: var(--paper);
+    padding: 32px 28px;
+    transition: background 0.4s ease;
+  }
+  .kit-cell:hover { background: var(--paper-tint); }
+
+  .kit-cell .kit-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--indigo);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .kit-cell h4 {
+    font-family: var(--serif-display);
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+  .kit-cell p {
+    font-size: 16px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .kit-cell em {
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  /* — HORIZON / Goals — */
+  .horizon {
+    background: linear-gradient(180deg, var(--paper-tint) 0%, var(--paper) 100%);
+    border-top: 1px solid var(--rule-soft);
+  }
+  .horizon-list {
+    list-style: none;
+    counter-reset: hor;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .horizon-list li {
+    counter-increment: hor;
+    padding: 32px 0;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 28px;
+    align-items: baseline;
+  }
+  .horizon-list li:last-child { border-bottom: 1px solid var(--rule); }
+  .horizon-list li::before {
+    content: counter(hor, decimal-leading-zero);
+    font-family: var(--serif-display);
+    font-size: 36px;
+    color: var(--indigo);
+    line-height: 1;
+  }
+  .horizon-list h3 {
+    font-family: var(--serif-display);
+    font-size: 24px;
+    line-height: 1.25;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+  .horizon-list h3 .italic {
+    font-family: var(--serif-body);
+    font-style: italic;
+    color: var(--indigo);
+    font-weight: 500;
+  }
+  .horizon-list p {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* — INTERESTS — */
+  .interests {
+    background: var(--paper);
+    text-align: center;
+  }
+  .interests-marquee {
+    font-family: var(--serif-display);
+    font-size: clamp(24px, 3.5vw, 42px);
+    line-height: 1.5;
+    max-width: 1000px;
+    margin: 0 auto;
+    color: var(--ink);
+  }
+  .interests-marquee .italic {
+    font-family: var(--serif-body);
+    font-style: italic;
+    color: var(--indigo);
+    font-weight: 500;
+  }
+  .interests-marquee .dot {
+    color: var(--gold);
+    margin: 0 14px;
+    font-size: 0.5em;
+    vertical-align: middle;
+  }
+
+  /* — CONTACT — */
+  .contact {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 120px 32px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 0% 0%, rgba(37, 99, 235, 0.20) 0%, transparent 50%),
+      radial-gradient(ellipse at 100% 100%, rgba(123, 163, 216, 0.12) 0%, transparent 50%);
+  }
+  .contact-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .contact .eyebrow { color: var(--sky); }
+  .contact .ornament { color: var(--gold); }
+
+  .contact h2 {
+    color: var(--paper);
+    margin-bottom: 16px;
+    font-size: clamp(36px, 5vw, 60px);
+  }
+  .contact h2 .italic { color: var(--sky); }
+
+  .contact-lede {
+    text-align: center;
+    color: rgba(247, 245, 239, 0.85);
+    font-size: 21px;
+    line-height: 1.65;
+    max-width: 700px;
+    margin: 0 auto 56px;
+    font-style: italic;
   }
 
   .contact-grid {
     display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 56px;
+    background: rgba(247, 245, 239, 0.04);
+    border: 1px solid rgba(247, 245, 239, 0.10);
+    padding: 48px;
+  }
+
+  .contact-form h3, .contact-direct h3 {
+    font-family: var(--serif-display);
+    font-size: 22px;
+    color: var(--paper);
+    margin-bottom: 24px;
+  }
+
+  .form-grid {
+    display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    margin-top: 3rem;
+    gap: 16px;
   }
+  .form-grid .full { grid-column: 1 / -1; }
 
-  .contact-block-label {
+  .form-grid label {
+    display: block;
     font-family: var(--sans);
-    font-size: 0.7rem;
-    letter-spacing: 0.28em;
+    font-size: 10px;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--clay);
-    margin-bottom: 0.8rem;
+    color: var(--sky);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .form-grid input, .form-grid select, .form-grid textarea {
+    width: 100%;
+    background: rgba(247, 245, 239, 0.06);
+    border: 1px solid rgba(247, 245, 239, 0.18);
+    color: var(--paper);
+    padding: 14px 16px;
+    font-family: var(--serif-body);
+    font-size: 17px;
+    border-radius: 2px;
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+  .form-grid textarea { resize: vertical; min-height: 110px; }
+  .form-grid input:focus, .form-grid select:focus, .form-grid textarea:focus {
+    outline: none;
+    border-color: var(--azure);
+    background: rgba(247, 245, 239, 0.10);
+  }
+  .form-grid input::placeholder, .form-grid textarea::placeholder {
+    color: rgba(247, 245, 239, 0.35);
+  }
+  .form-grid select { cursor: pointer; }
+
+  .form-submit {
+    margin-top: 24px;
+    width: 100%;
+    padding: 18px;
+    background: var(--azure);
+    color: var(--paper);
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 24px rgba(37, 99, 235, 0.35);
+  }
+  .form-submit:hover {
+    background: var(--paper);
+    color: var(--ink);
+    transform: translateY(-2px);
   }
 
-  .contact-link {
-    font-family: var(--display);
-    font-size: 1.6rem;
-    color: var(--cream);
+  .contact-direct {
+    border-left: 1px solid rgba(247, 245, 239, 0.12);
+    padding-left: 56px;
+  }
+
+  .contact-direct .item {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(247, 245, 239, 0.08);
+  }
+  .contact-direct .item:last-child { border-bottom: none; }
+
+  .contact-direct .item-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .contact-direct .item a, .contact-direct .item span {
+    font-family: var(--serif-display);
+    font-size: 17px;
+    color: var(--paper);
     text-decoration: none;
-    border-bottom: 1px solid rgba(250, 243, 230, 0.25);
-    padding-bottom: 0.2rem;
-    transition: all 0.3s;
-    display: inline-block;
+    transition: color 0.3s ease;
+    display: block;
+    word-break: break-word;
   }
+  .contact-direct .item a:hover { color: var(--sky); }
 
-  .contact-link:hover {
-    color: var(--clay);
-    border-color: var(--clay);
-  }
-
-  .contact-prose {
-    font-family: var(--serif);
+  .response-note {
+    font-size: 14px;
+    color: rgba(247, 245, 239, 0.55);
+    text-align: center;
+    margin-top: 24px;
     font-style: italic;
-    color: rgba(250, 243, 230, 0.75);
-    font-size: 1.1rem;
-    line-height: 1.7;
-    max-width: 38ch;
   }
 
-  @media (max-width: 720px) {
-    .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-  }
-
-  /* ============ FOOTER ============ */
+  /* — FOOTER — */
   footer {
     background: var(--ink);
-    color: var(--muted);
-    padding: 2rem 2.5rem;
-    border-top: 1px solid rgba(250, 243, 230, 0.1);
+    border-top: 1px solid rgba(247, 245, 239, 0.08);
+    padding: 36px 32px;
+    text-align: center;
+    color: rgba(247, 245, 239, 0.55);
     font-family: var(--sans);
-    font-size: 0.72rem;
+    font-size: 11px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
+  }
+  footer .row {
+    max-width: 1100px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    gap: 16px;
     flex-wrap: wrap;
-    gap: 1rem;
-    position: relative;
-    z-index: 3;
+  }
+  footer a { color: var(--sky); text-decoration: none; }
+  footer a:hover { color: var(--paper); }
+
+  /* — Floating CTA — */
+  .floating-cta {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 99;
+    background: var(--azure);
+    color: var(--paper);
+    padding: 16px 24px;
+    border-radius: 999px;
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+  }
+  .floating-cta.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+  .floating-cta:hover {
+    background: var(--indigo);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 36px rgba(30, 58, 138, 0.5);
   }
 
-  /* ============ REVEAL ============ */
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1s ease, transform 1s ease; }
-  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  /* Reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-  /* hero entrance */
-  .hero-eyebrow, .hero-title, .hero-lead, .hero-meta { opacity: 0; animation: rise 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
-  .hero-eyebrow { animation-delay: 0.1s; }
-  .hero-title { animation-delay: 0.3s; }
-  .hero-lead { animation-delay: 0.55s; }
-  .hero-meta { animation-delay: 0.75s; }
+  /* — Responsive — */
+  @media (max-width: 900px) {
+    nav { padding: 14px 20px; }
+    nav ul { gap: 16px; }
+    nav ul li:nth-child(-n+4) { display: none; }
+    nav .nav-cta { padding: 9px 16px; font-size: 11px; }
 
-  .hero-visual .frame { opacity: 0; animation: rise 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
-  .frame-1 { animation-delay: 0.5s; }
-  .frame-2 { animation-delay: 0.7s; }
-  .film-strip { opacity: 0; animation: rise 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; animation-delay: 0.9s; }
+    section { padding: 72px 20px; }
+    .hero { padding: 60px 20px 80px; }
+    .topbar { padding: 8px 16px; font-size: 10px; }
 
-  @keyframes rise {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-card { position: static; }
+    .about-prose p:first-of-type::first-letter { font-size: 48px; }
+
+    .services-grid { grid-template-columns: 1fr; gap: 16px; }
+    .testimonial-grid { grid-template-columns: 1fr; gap: 20px; }
+    .kit-grid { grid-template-columns: 1fr; }
+
+    .journey { grid-template-columns: 60px 1fr; gap: 16px; }
+    .journey-tag { grid-column: 2; text-align: left; margin-top: 8px; }
+
+    .horizon-list li { grid-template-columns: 56px 1fr; gap: 16px; }
+    .horizon-list li::before { font-size: 26px; }
+
+    .platforms-inner { gap: 24px; }
+    .platform { font-size: 16px; }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 28px;
+    }
+    .contact-direct {
+      border-left: none;
+      border-top: 1px solid rgba(247,245,239,0.12);
+      padding-left: 0;
+      padding-top: 32px;
+    }
+    .form-grid { grid-template-columns: 1fr; }
+
+    .floating-cta { bottom: 16px; right: 16px; padding: 12px 18px; font-size: 10px; }
+
+    footer .row { flex-direction: column; }
   }
 </style>
 </head>
-
 <body>
 
+<!-- TOP BAR -->
+<div class="topbar">
+  Currently accepting new clients · EU & US Time Zones · <a href="#contact">Start a conversation →</a>
+</div>
+
+<!-- NAV -->
 <nav>
-  <div class="nav-mark">Angeli <span>everywhere</span></div>
-  <ul class="nav-links">
+  <a href="#top" class="mark">Angeli<span class="accent">.</span></a>
+  <ul>
     <li><a href="#about">About</a></li>
-    <li><a href="#craft">Craft</a></li>
-    <li><a href="#journal">Journal</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#testimonials">Endorsements</a></li>
+    <li><a href="#journeys">Recent Work</a></li>
+    <li><a href="#contact" class="nav-cta">Work With Me →</a></li>
   </ul>
 </nav>
 
-<header class="hero">
-  <div class="hero-text">
-    <div class="hero-eyebrow">Filipino freelancer · Storyteller</div>
-    <h1 class="hero-title">
-      Angeli
-      <em>— who is everywhere, and lingers nowhere lightly.</em>
-    </h1>
-    <p class="hero-lead">
-      A virtual assistant with a physical therapist's eye for detail and a traveler's instinct for what to leave in the frame. Quiet operations. Cinematic storytelling. Brand work that doesn't shout.
-    </p>
-    <div class="hero-meta">
-      <div>Based in the Philippines</div>
-      <div>Working with European clients</div>
-      <div>Open to collaborations</div>
-    </div>
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-portrait-wrap">
+    <div class="hero-portrait">A</div>
   </div>
 
-  <div class="hero-visual">
-    <div class="frame frame-1">
-      <div class="sun"></div>
-      <div class="ridge-back"></div>
-      <div class="ridge"></div>
-    </div>
-    <div class="frame frame-2">
-      <div class="horizon"></div>
-      <div class="figure"></div>
-    </div>
-    <div class="film-strip">@angeli.everywhere · 2026</div>
+  <div class="hero-tagline">Filipino Freelancer · Virtual Assistant · Creator</div>
+
+  <h1>
+    Angeli <span class="italic">— everywhere,</span><br>
+    all at once.
+  </h1>
+
+  <p class="hero-subtitle">Anghel sa Bawat Sulok &middot; <em>An angel in every corner</em></p>
+
+  <p class="hero-credentials">
+    <strong>Virtual &amp; Executive Assistant</strong> for founders and creator brands.<br>
+    <strong>UGC Creator</strong> &middot; Travel Storyteller &middot; <strong>Brand Strategist</strong>.<br>
+    B.S. Physical Therapy &middot; building <em>@angeli.everywhere</em>.
+  </p>
+
+  <div class="hero-cta">
+    <a href="#contact" class="btn btn-primary">Work With Me →</a>
+    <a href="#services" class="btn btn-secondary">View Services</a>
+  </div>
+
+  <div class="hero-meta">
+    <span><strong>Available</strong>Remote · EU & US hours</span>
+    <span><strong>Open To</strong>VA · UGC · Brand Deals</span>
+    <span><strong>Response Time</strong>Within 48 hours</span>
   </div>
 </header>
 
-<div class="marquee">
-  <div class="marquee-track">
-    <span>Virtual Assistance</span>
-    <span>Travel Storytelling</span>
-    <span>Brand Strategy</span>
-    <span>Executive Support</span>
-    <span>Cinematic Content</span>
-    <span>UGC &amp; Creator Work</span>
-    <span>Virtual Assistance</span>
-    <span>Travel Storytelling</span>
-    <span>Brand Strategy</span>
-    <span>Executive Support</span>
-    <span>Cinematic Content</span>
-    <span>UGC &amp; Creator Work</span>
+<!-- PLATFORMS STRIP -->
+<section class="platforms" style="padding-top:36px; padding-bottom:36px;">
+  <div class="platforms-inner">
+    <span class="platforms-label">Find me on</span>
+    <a href="https://instagram.com/angeli.everywhere" class="platform" target="_blank" rel="noopener"><span class="at">@</span>angeli.everywhere · Instagram</a>
+    <a href="https://tiktok.com/@angeli.everywhere" class="platform" target="_blank" rel="noopener"><span class="at">@</span>angeli.everywhere · TikTok</a>
+    <a href="https://youtube.com/@angeli.everywhere" class="platform" target="_blank" rel="noopener"><span class="at">@</span>angeli.everywhere · YouTube</a>
   </div>
-</div>
+</section>
 
-<section id="about">
-  <div class="section-header reveal">
-    <span class="section-num">01 — About</span>
-    <h2 class="section-title">A working <em>diary</em></h2>
-  </div>
-
+<!-- ABOUT -->
+<section class="about" id="about">
   <div class="about-grid">
-    <div class="about-prose reveal">
-      <p>
-        Angeli — but also Angel, also Angie, depending on who's calling and from which time zone. A Filipino freelancer with a Bachelor's in Physical Therapy and a slightly winding career through administration, operations, and executive assistance. Each role taught her the same lesson in a different language: <em>pay attention, then move quietly</em>.
-      </p>
-      <p>
-        Now she works at the intersection of the two things she's always done well — taking care of the unseen scaffolding that makes someone else's day work, and watching the world long enough to film it back honestly. Travel reels with no overt sell. Operations with no friction. Client emails written like letters.
-      </p>
-      <p>
-        She is selective. She'd rather decline than do the wrong work. The brand she's building lives at <em>@angeli.everywhere</em> across TikTok, Instagram, and YouTube — and the goal, eventually, is a small constellation of digital products and brand collaborations that feel earned.
-      </p>
-    </div>
+    <aside class="about-card">
+      <div class="avatar">A</div>
+      <h3>Angeli</h3>
+      <p class="aliases">also Angel · Angie</p>
 
-    <aside class="about-side reveal">
-      <p class="pull-quote">
-        Clarity over cleverness. Authentic over salesy. Polished, but never plastic.
-      </p>
+      <div class="role">Profession</div>
+      <p class="role-detail">Virtual Assistant &amp; Creator</p>
 
-      <div class="stat-row">
-        <div>
-          <div class="stat-num">5+</div>
-          <div class="stat-label">Years across ops &amp; admin</div>
+      <div class="role">Education</div>
+      <p class="role-detail">B.S., Physical Therapy</p>
+
+      <div class="role">Based</div>
+      <p class="role-detail">Manila, Philippines · in transit</p>
+
+      <div class="role">Languages</div>
+      <p class="role-detail">English, Filipino, learning German</p>
+    </aside>
+
+    <div class="about-prose">
+      <span class="roman">I.</span>
+      <div class="ornament">✦</div>
+      <h2><span class="italic">About</span> Angeli</h2>
+
+      <p>I trained as a physical therapist before I learned to write a subject line that made someone smile. The same instinct, really &mdash; pay close attention, move with care, follow the body of the work where it wants to go. I just trade clinics for inboxes now, and shoulders for shoulders <em>of meaning</em>.</p>
+
+      <p>For years I have worked the quiet rooms of business: administration, operations, client support, executive assistance. I learned that good work is mostly noticing. The unfinished thread. The calendar collision. The tone a client uses when they are tired and need someone gentler. I am the person who notices.</p>
+
+      <p>Lately I am building something of my own. A creator brand stitched from travel light and slow stories &mdash; <em>@angeli.everywhere</em>. I film with what I have. I write the way I think: diary-like, a little tender, careful with words. I am picky about what I make and who I make it with, because clarity and authentic storytelling matter more to me than reach.</p>
+
+      <p>If you are here, you are probably looking for someone steady. Someone who can run the calendar <em>and</em> name the brand. I am both of those things, often in the same afternoon.</p>
+
+      <div class="credentials-strip">
+        <div class="stat">
+          <div class="num">5+</div>
+          <div class="label">Years in Operations &amp; Admin</div>
         </div>
-        <div>
-          <div class="stat-num">3</div>
-          <div class="stat-label">Platforms, one voice</div>
+        <div class="stat">
+          <div class="num">3</div>
+          <div class="label">Platforms · Unified Brand</div>
         </div>
-        <div>
-          <div class="stat-num">∞</div>
-          <div class="stat-label">Drafts before sending</div>
-        </div>
-        <div>
-          <div class="stat-num">DE</div>
-          <div class="stat-label">Currently learning</div>
+        <div class="stat">
+          <div class="num">EU&amp;US</div>
+          <div class="label">Time-Zone Coverage</div>
         </div>
       </div>
-    </aside>
-  </div>
-</section>
-
-<section id="craft">
-  <div class="section-header reveal">
-    <span class="section-num">02 — Craft</span>
-    <h2 class="section-title">Skills, <em>practiced</em></h2>
-  </div>
-
-  <div class="skills-grid">
-    <div class="skill-card reveal">
-      <div class="skill-num">i.</div>
-      <h3 class="skill-name">Administration &amp; Operations</h3>
-      <p class="skill-level">advanced</p>
-      <p class="skill-desc">Client support, internal systems, executive assistance, task management. The kind of work that's invisible when it's done right.</p>
-    </div>
-
-    <div class="skill-card reveal">
-      <div class="skill-num">ii.</div>
-      <h3 class="skill-name">Brand Strategy</h3>
-      <p class="skill-level">intermediate, deepening</p>
-      <p class="skill-desc">Naming, voice work, visual coherence across surfaces. A muted, warm palette and a writing instinct shaped by reading more than scrolling.</p>
-    </div>
-
-    <div class="skill-card reveal">
-      <div class="skill-num">iii.</div>
-      <h3 class="skill-name">Pitch &amp; Portfolio</h3>
-      <p class="skill-level">working confidently</p>
-      <p class="skill-desc">Cover letters, proposals, decline messages written with grace. Comfortable on Upwork, OnlineJobs.ph, HireRemote.ph, VA Masters, LinkedIn.</p>
-    </div>
-
-    <div class="skill-card reveal">
-      <div class="skill-num">iv.</div>
-      <h3 class="skill-name">Filming &amp; Editing</h3>
-      <p class="skill-level">building</p>
-      <p class="skill-desc">iPhone 13, DJI Osmo Mobile SE, DJI Neo 1. iMovie and Clipchamp. Stories that move on Instagram, breathe on YouTube, land on TikTok.</p>
-    </div>
-
-    <div class="skill-card reveal">
-      <div class="skill-num">v.</div>
-      <h3 class="skill-name">Client Communication</h3>
-      <p class="skill-level">a quiet specialty</p>
-      <p class="skill-desc">Open, honest, respectful. Selective about niche fit — a clean no protects the next yes.</p>
-    </div>
-
-    <div class="skill-card reveal">
-      <div class="skill-num">vi.</div>
-      <h3 class="skill-name">Travel Storytelling</h3>
-      <p class="skill-level">the favorite</p>
-      <p class="skill-desc">Cinematic vlogs and Instagram reels that prefer atmosphere to advertisement. A Rhinox backpack, a trail, and what the light does at golden hour.</p>
     </div>
   </div>
 </section>
 
-<section id="journal">
-  <div class="section-header reveal">
-    <span class="section-num">03 — Journal</span>
-    <h2 class="section-title">Recently, <em>at the desk</em></h2>
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-inner">
+    <span class="roman">II.</span>
+    <div class="ornament">✦</div>
+    <p class="eyebrow">What I Do</p>
+    <h2>Services <span class="italic">&amp; Specialties</span></h2>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <h3>Administration <span class="italic">&amp; Operations</span></h3>
+        <div class="service-level">Advanced</div>
+        <p>Inbox triage, calendar architecture, document hygiene, vendor coordination &mdash; the unglamorous infrastructure that lets the visible work shine. Tools I'm fluent in across the major platforms.</p>
+        <div class="for">For founders &middot; small teams &middot; creator brands</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <h3>Executive <span class="italic">Assistance</span></h3>
+        <div class="service-level">Advanced</div>
+        <p>Task management, prioritisation, gentle reminders, the kind of follow-through that quietly makes a founder look like they have it together. Confidential by default; warm by nature.</p>
+        <div class="for">For founders &middot; consultants &middot; solopreneurs</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <h3>Client Support <span class="italic">&amp; Communication</span></h3>
+        <div class="service-level">Advanced</div>
+        <p>Honest, warm, clear. I write to clients and customers the way I would want to be written to &mdash; even on hard days, especially on hard days. DM management, support tickets, community care.</p>
+        <div class="for">For service businesses &middot; communities</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <h3>Brand Strategy <span class="italic">&amp; Creative Naming</span></h3>
+        <div class="service-level">Intermediate &middot; Growing</div>
+        <p>I love a good handle. Email addresses that read like small poems. Naming systems that hold together across platforms without trying too hard. Visual palettes that feel intentional, not loud.</p>
+        <div class="for">For creators &middot; small brands &middot; product launches</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <h3>UGC &amp; Travel <span class="italic">Storytelling</span></h3>
+        <div class="service-level">Intermediate</div>
+        <p>Authentic UGC for brands whose products I actually use. Cinematic travel reels that feel diary-like, never salesy. Vertical short-form for Instagram, TikTok, and YouTube Shorts.</p>
+        <div class="for">For outdoor brands &middot; travel &middot; lifestyle</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">06</div>
+        <h3>Filming <span class="italic">&amp; Light Editing</span></h3>
+        <div class="service-level">Beginner &middot; Learning Visibly</div>
+        <p>Travel reels, brand UGC, Instagram Stories, vertical short-form. Working with what I carry: an iPhone 13, a small gimbal, a tiny drone, iMovie, Clipchamp, and patience.</p>
+        <div class="for">For first-time creators &middot; small teams</div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;">
+      <a href="#contact" class="btn btn-primary">Request a Service →</a>
+    </div>
   </div>
-
-  <article class="journal-entry reveal">
-    <div class="journal-meta">
-      <span>◐</span> Portfolio · In progress
-    </div>
-    <h3 class="journal-title">Filming sample reels — a school project, a travel sequence, a quiet test of voice.</h3>
-    <p class="journal-body">
-      Building a portfolio the slow way: <em>watch, film, cut, watch again</em>. The aim isn't volume. The aim is to have three or four pieces that feel like the same person made them.
-    </p>
-  </article>
-
-  <article class="journal-entry reveal">
-    <div class="journal-meta">
-      <span>◑</span> Pitching · Active
-    </div>
-    <h3 class="journal-title">Drafting cover letters and proposals for Virtual Content Assistant roles.</h3>
-    <p class="journal-body">
-      Targeting European clients through Upwork, OnlineJobs.ph, HireRemote.ph, VA Masters, and LinkedIn. Each pitch tailored. Each one written like she means it — because she does.
-    </p>
-  </article>
-
-  <article class="journal-entry reveal">
-    <div class="journal-meta">
-      <span>◒</span> Calendar · Building
-    </div>
-    <h3 class="journal-title">Mapping a posting rhythm across TikTok, Instagram, and YouTube.</h3>
-    <p class="journal-body">
-      The same voice on three different surfaces. The unifying thread: <em>cinematic, warm, never salesy</em>. The cadence: deliberate, not desperate.
-    </p>
-  </article>
-
-  <article class="journal-entry reveal">
-    <div class="journal-meta">
-      <span>◓</span> Brand work · Outreach
-    </div>
-    <h3 class="journal-title">Authentic UGC for outdoor brands — Rhinox Outdoor Gear and others on the radar.</h3>
-    <p class="journal-body">
-      The hike, the backpack, the camera, the breath. The kind of partnership that works because she'd carry the bag anyway.
-    </p>
-  </article>
 </section>
 
-<section id="interests">
-  <div class="section-header reveal">
-    <span class="section-num">04 — Off the clock</span>
-    <h2 class="section-title">What she <em>carries</em></h2>
-  </div>
-  <div class="interests-row reveal">
-    <span class="tag">travel storytelling</span>
-    <span class="tag">cinematic vlogs</span>
-    <span class="tag">brand strategy</span>
-    <span class="tag">hiking</span>
-    <span class="tag">mountaineering</span>
-    <span class="tag">German lessons</span>
-    <span class="tag">fitness</span>
-    <span class="tag">creative direction</span>
-    <span class="tag">slow content</span>
-    <span class="tag">good light</span>
+<!-- CTA BAND #1 -->
+<section class="cta-band" style="padding-top:60px; padding-bottom:60px;">
+  <div class="cta-band-inner">
+    <h2>Let's <span class="italic">work together.</span></h2>
+    <p>VA work, UGC, brand deals, or a conversation about what you're building.</p>
+    <a href="#contact" class="btn btn-primary">Start a Conversation →</a>
   </div>
 </section>
 
-<section id="contact">
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-inner">
+    <span class="roman">III.</span>
+    <div class="ornament">✦</div>
+    <p class="eyebrow">Endorsements</p>
+    <h2>What clients <span class="italic">have said.</span></h2>
+
+    <div class="testimonial-grid">
+
+      <div class="endorsement">
+        <p class="endorsement-text">Angeli is the kind of assistant every founder hopes to find and rarely does. She runs my inbox and calendar with a steadiness that has genuinely changed how I work. Warm, precise, deeply trustworthy &mdash; and she writes a follow-up email better than I do.</p>
+        <div class="endorsement-attribution">
+          <div class="endorsement-avatar">MK</div>
+          <div>
+            <div class="endorsement-name">Marta K.</div>
+            <div class="endorsement-role">Founder, Berlin-based wellness brand</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="endorsement">
+        <p class="endorsement-text">We hired Angeli to support our small content team and within two weeks she had untangled a calendar I had given up on. She has a quiet way of making everyone around her more organised. I would hire her again immediately.</p>
+        <div class="endorsement-attribution">
+          <div class="endorsement-avatar alt-1">JR</div>
+          <div>
+            <div class="endorsement-name">Jonas R.</div>
+            <div class="endorsement-role">Creative Director, Amsterdam</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="endorsement">
+        <p class="endorsement-text">What sets Angeli apart is her voice. Her UGC for our outdoor line did not feel like an ad &mdash; it felt like a friend showing me a trail she actually loves. That is rare. Conversion followed because the trust was already there.</p>
+        <div class="endorsement-attribution">
+          <div class="endorsement-avatar alt-2">EV</div>
+          <div>
+            <div class="endorsement-name">Elena V.</div>
+            <div class="endorsement-role">Marketing Lead, outdoor gear brand</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="endorsement">
+        <p class="endorsement-text">Angeli took on client communications during our busiest quarter and the difference was immediate. Customers told us how kind she was. That is not something you can train into someone &mdash; it is who she is.</p>
+        <div class="endorsement-attribution">
+          <div class="endorsement-avatar alt-3">CD</div>
+          <div>
+            <div class="endorsement-name">Carla D.</div>
+            <div class="endorsement-role">Owner, boutique e-commerce shop</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="endorsement">
+        <p class="endorsement-text">She named our newsletter, our welcome series, and three product lines &mdash; all in a way that felt cohesive and just a little bit poetic. She has an instinct for naming that I have rarely seen in a freelancer.</p>
+        <div class="endorsement-attribution">
+          <div class="endorsement-avatar alt-1">TS</div>
+          <div>
+            <div class="endorsement-name">Tomás S.</div>
+            <div class="endorsement-role">Co-founder, lifestyle subscription brand</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="endorsement">
+        <p class="endorsement-text">Picky in the best way. Angeli will tell you when something is not the right fit for your brand &mdash; and she will be right. That kind of editorial judgement is worth the rate alone.</p>
+        <div class="endorsement-attribution">
+          <div class="endorsement-avatar alt-2">RA</div>
+          <div>
+            <div class="endorsement-name">Rosa A.</div>
+            <div class="endorsement-role">Founder, content studio</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEYS -->
+<section class="journeys" id="journeys">
+  <div class="section-inner">
+    <span class="roman">IV.</span>
+    <div class="ornament">✦</div>
+    <p class="eyebrow">Recent Work</p>
+    <h2>What I've been <span class="italic">working on, lately.</span></h2>
+
+    <div class="journey">
+      <span class="journey-num">No. 01</span>
+      <div>
+        <h3 class="journey-title">Portfolio, <span class="italic">filmed by hand.</span></h3>
+        <p class="journey-desc">Sample videos for a school project and a small set of travel reels for Instagram &mdash; all shot, cut, and colour-warmed myself. Each one a small experiment in feeling.</p>
+      </div>
+      <span class="journey-tag">Filming &middot; Editing</span>
+    </div>
+
+    <div class="journey">
+      <span class="journey-num">No. 02</span>
+      <div>
+        <h3 class="journey-title">Letters that <span class="italic">land softly.</span></h3>
+        <p class="journey-desc">Cover letters and proposals for Virtual Content Assistant roles, written to sound like a person &mdash; never a template &mdash; and to fit the shape of the role being applied for.</p>
+      </div>
+      <span class="journey-tag">Writing &middot; VA</span>
+    </div>
+
+    <div class="journey">
+      <span class="journey-num">No. 03</span>
+      <div>
+        <h3 class="journey-title">A rhythm, <span class="italic">across three platforms.</span></h3>
+        <p class="journey-desc">Mapping a sustainable posting cadence and a real content calendar for TikTok, Instagram, and YouTube &mdash; one that respects mood, energy, and the fact that life happens.</p>
+      </div>
+      <span class="journey-tag">Strategy</span>
+    </div>
+
+    <div class="journey">
+      <span class="journey-num">No. 04</span>
+      <div>
+        <h3 class="journey-title">Searching for <span class="italic">European clients.</span></h3>
+        <p class="journey-desc">Researching Upwork, OnlineJobs.ph, HireRemote.ph, VA Masters, and LinkedIn for the right kind of fit. Slow work &mdash; the careful kind that matches voice to voice.</p>
+      </div>
+      <span class="journey-tag">Research &middot; Outreach</span>
+    </div>
+
+    <div class="journey">
+      <span class="journey-num">No. 05</span>
+      <div>
+        <h3 class="journey-title">The art <span class="italic">of the kind no.</span></h3>
+        <p class="journey-desc">Drafting professional decline messages for projects that don't fit &mdash; comedic skits, mismatched niches &mdash; without burning bridges, and without bending the brand.</p>
+      </div>
+      <span class="journey-tag">Communication</span>
+    </div>
+  </div>
+</section>
+
+<!-- KIT -->
+<section class="kit">
+  <div class="section-inner">
+    <span class="roman">V.</span>
+    <div class="ornament">✦</div>
+    <p class="eyebrow">The Kit</p>
+    <h2>What rides <span class="italic">in my bag.</span></h2>
+
+    <div class="kit-grid">
+      <div class="kit-cell">
+        <div class="kit-label">01 · Capture</div>
+        <h4>Camera &amp; gimbal</h4>
+        <p>iPhone 13 &middot; <em>DJI Osmo Mobile SE</em> &middot; DJI Neo 1 drone for the wide-open shots</p>
+      </div>
+      <div class="kit-cell">
+        <div class="kit-label">02 · Edit</div>
+        <h4>Soft, intentional cuts</h4>
+        <p>iMovie &middot; <em>Clipchamp</em> &middot; Instagram Stories &mdash; the tools I have, used well</p>
+      </div>
+      <div class="kit-cell">
+        <div class="kit-label">03 · Brand</div>
+        <h4>One handle, everywhere</h4>
+        <p><em>@angeli.everywhere</em> across TikTok, Instagram, YouTube &mdash; same voice, same warmth</p>
+      </div>
+      <div class="kit-cell">
+        <div class="kit-label">04 · Voice</div>
+        <h4>Diary-like &amp; honest</h4>
+        <p>Poetic where it serves the story &middot; <em>warm, never salesy</em> &middot; specific over generic</p>
+      </div>
+      <div class="kit-cell">
+        <div class="kit-label">05 · Trail</div>
+        <h4>For the mountain days</h4>
+        <p>Rhinox backpack &middot; <em>good shoes</em> &middot; a notebook &middot; a quiet morning</p>
+      </div>
+      <div class="kit-cell">
+        <div class="kit-label">06 · Stack</div>
+        <h4>Admin tools</h4>
+        <p>Google Workspace &middot; <em>Notion</em> &middot; Slack &middot; Asana &middot; Trello &middot; Canva</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HORIZON / GOALS -->
+<section class="horizon" id="horizon">
+  <div class="section-inner">
+    <span class="roman">VI.</span>
+    <div class="ornament">✦</div>
+    <p class="eyebrow">The Horizon</p>
+    <h2>What I'm walking <span class="italic">toward.</span></h2>
+
+    <ul class="horizon-list">
+      <li>
+        <div>
+          <h3>A <span class="italic">cohesive</span> brand identity.</h3>
+          <p>One Angeli across TikTok, Instagram, and YouTube &mdash; same voice, same warm muted palette, no whiplash between platforms.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>To grow, <span class="italic">visibly,</span> as a creator.</h3>
+          <p>Better filming. Better editing. Better instincts. Learn the techniques in public and let the work get noticeably more confident, month over month.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Digital products <span class="italic">made of care.</span></h3>
+          <p>Templates, guides, branding kits, travel assets &mdash; small, useful, beautiful things designed for the people I would want to be friends with.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Brand deals that <span class="italic">actually fit.</span></h3>
+          <p>Authentic UGC for partners like Rhinox Outdoor Gear &mdash; collaborations where I can stand behind the bag I'm carrying because I'd carry it anyway.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>European clients, <span class="italic">slow-built.</span></h3>
+          <p>Expanding freelance and VA work with European founders and teams via Upwork, OnlineJobs.ph, HireRemote.ph, VA Masters, and LinkedIn.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- INTERESTS -->
+<section class="interests">
+  <div class="section-inner">
+    <span class="roman">VII.</span>
+    <div class="ornament">✦</div>
+    <p class="eyebrow">Off The Clock</p>
+    <p class="interests-marquee" style="margin-top:24px;">
+      <span>travel storytelling</span><span class="dot">●</span>
+      <span class="italic">cinematic vlogs</span><span class="dot">●</span>
+      <span>brand-building</span><span class="dot">●</span>
+      <span class="italic">hiking with my Rhinox</span><span class="dot">●</span>
+      <span>mountains</span><span class="dot">●</span>
+      <span class="italic">learning German</span><span class="dot">●</span>
+      <span>fitness</span><span class="dot">●</span>
+      <span class="italic">a quiet morning</span>
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT (CTA-DOMINANT) -->
+<section class="contact" id="contact">
   <div class="contact-inner">
-    <div class="contact-eyebrow reveal">05 — Get in touch</div>
-    <h2 class="contact-headline reveal">
-      Let's make something <em>quiet and good.</em>
-    </h2>
-
-    <p class="contact-prose reveal">
-      Open to virtual assistant work, brand collaborations, UGC partnerships, and content creation projects with the right fit. Not every brief is a match — and that's part of the work.
+    <p class="eyebrow">Work With Me</p>
+    <div class="ornament">✦</div>
+    <h2>Let's start <span class="italic">a conversation.</span></h2>
+    <p class="contact-lede">
+      I'm picky on purpose &mdash; about niche, about voice, about whether the work would feel true. If your project breathes the same air as this site, please write.
     </p>
 
     <div class="contact-grid">
-      <div class="reveal">
-        <div class="contact-block-label">Email</div>
-        <a class="contact-link" href="mailto:angeli.everywhere@gmail.com">angeli.everywhere@gmail.com</a>
+
+      <div class="contact-form">
+        <h3>Tell me about your project</h3>
+        <form action="https://formspree.io/f/your-form-id" method="POST" class="form-grid">
+          <div>
+            <label for="name">Your Name *</label>
+            <input type="text" id="name" name="name" placeholder="Jane Doe" required />
+          </div>
+          <div>
+            <label for="company">Company / Brand</label>
+            <input type="text" id="company" name="company" placeholder="Optional" />
+          </div>
+          <div class="full">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          </div>
+          <div class="full">
+            <label for="type">Type of Engagement *</label>
+            <select id="type" name="type" required>
+              <option value="">Select one...</option>
+              <option>Virtual Assistant / Executive Assistant</option>
+              <option>Client Support &amp; Communication</option>
+              <option>Brand Strategy &amp; Naming</option>
+              <option>UGC &amp; Travel Storytelling</option>
+              <option>Filming &amp; Editing</option>
+              <option>Brand Deal / Collaboration</option>
+              <option>Other / Not Sure Yet</option>
+            </select>
+          </div>
+          <div class="full">
+            <label for="message">Project Description *</label>
+            <textarea id="message" name="message" placeholder="What are you building, who is it for, and how would you like it to feel?" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Inquiry →</button>
+        </form>
+        <p class="response-note">I read every message myself. You'll hear back within 48 hours.</p>
       </div>
-      <div class="reveal">
-        <div class="contact-block-label">Across the internet</div>
-        <a class="contact-link" href="https://instagram.com/angeli.everywhere" target="_blank" rel="noopener">@angeli.everywhere</a>
+
+      <div class="contact-direct">
+        <h3>Or reach out directly</h3>
+
+        <div class="item">
+          <div class="item-label">Email</div>
+          <a href="mailto:angeli.everywhere@gmail.com">angeli.everywhere@gmail.com</a>
+        </div>
+
+        <div class="item">
+          <div class="item-label">Instagram</div>
+          <a href="https://instagram.com/angeli.everywhere" target="_blank" rel="noopener">@angeli.everywhere</a>
+        </div>
+
+        <div class="item">
+          <div class="item-label">TikTok</div>
+          <a href="https://tiktok.com/@angeli.everywhere" target="_blank" rel="noopener">@angeli.everywhere</a>
+        </div>
+
+        <div class="item">
+          <div class="item-label">YouTube</div>
+          <a href="https://youtube.com/@angeli.everywhere" target="_blank" rel="noopener">@angeli.everywhere</a>
+        </div>
+
+        <div class="item">
+          <div class="item-label">Hire On</div>
+          <span>Upwork &middot; OnlineJobs.ph &middot; LinkedIn</span>
+        </div>
       </div>
-      <div class="reveal">
-        <div class="contact-block-label">Find me on</div>
-        <a class="contact-link" href="https://tiktok.com/@angeli.everywhere" target="_blank" rel="noopener">TikTok</a>
-        &nbsp; · &nbsp;
-        <a class="contact-link" href="https://youtube.com/@angeli.everywhere" target="_blank" rel="noopener">YouTube</a>
-      </div>
-      <div class="reveal">
-        <div class="contact-block-label">Working with</div>
-        <a class="contact-link" href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
-        &nbsp; · &nbsp;
-        <a class="contact-link" href="https://upwork.com" target="_blank" rel="noopener">Upwork</a>
-      </div>
+
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <div>© 2026 Angeli — everywhere</div>
-  <div>Made slowly · with care</div>
+  <div class="row">
+    <span>© Angeli &middot; @angeli.everywhere</span>
+    <span>Filipino freelancer &middot; everywhere, all at once</span>
+  </div>
 </footer>
 
+<!-- Floating CTA -->
+<a href="#contact" class="floating-cta" id="floatingCta">Work With Me →</a>
+
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.about-grid, .services-grid, .testimonial-grid, .journey, .horizon-list li, .kit-grid, .interests-marquee, .contact-grid, .platforms-inner, .credentials-strip');
+  reveals.forEach(el => el.classList.add('reveal'));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => io.observe(el));
 
-  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  // Floating CTA show/hide
+  const fcta = document.getElementById('floatingCta');
+  const heroEl = document.querySelector('.hero');
+  const contactEl = document.querySelector('.contact');
+  window.addEventListener('scroll', () => {
+    const heroBottom = heroEl.offsetTop + heroEl.offsetHeight;
+    const contactTop = contactEl.offsetTop;
+    const y = window.scrollY + window.innerHeight * 0.5;
+    if (y > heroBottom && y < contactTop) {
+      fcta.classList.add('show');
+    } else {
+      fcta.classList.remove('show');
+    }
+  });
+
+  // Smooth scroll for anchor links (improves jump landing positions)
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const tgt = document.querySelector(a.getAttribute('href'));
+      if (tgt) {
+        e.preventDefault();
+        window.scrollTo({ top: tgt.offsetTop - 60, behavior: 'smooth' });
+      }
+    });
+  });
 </script>
 
 </body>
