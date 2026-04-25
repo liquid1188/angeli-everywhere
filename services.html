@@ -3,58 +3,77 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Services & Pricing — Angie Yumul</title>
-<meta name="description" content="Four ways we can work together: VA & Operations, Executive Assistance, UGC & Content, Brand & Creative. Pricing, process, and FAQs." />
-<meta property="og:title" content="Services & Pricing — Angie Yumul" />
-<meta property="og:description" content="Four ways we can work together: VA & Operations, Executive Assistance, UGC & Content, Brand & Creative. Pricing, process, and FAQs." />
+<title>Services — Angie Yumul</title>
+<meta name="description" content="Virtual assistance, executive support, UGC, and brand & creative services. Rates and process." />
+<meta property="og:title" content="Services — Angie Yumul" />
+<meta property="og:description" content="Virtual assistance, executive support, UGC, and brand & creative services. Rates and process." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
 <div class="topstrip">
   <span>Now booking — May 2026 onwards</span>
   <span>·</span>
   <span>Remote, EU &amp; US hours</span>
   <span>·</span>
-  <a href="work.html">Start a project →</a>
+  <a href="work.html">Start a project &rarr;</a>
 </div>
+
 <nav class="site-nav">
   <a href="index.html" class="brand">
     <div class="brand-mark">a</div>
     <div class="brand-text">
       Angie Yumul
-      <small>Virtual Assistant · Storyteller</small>
+      <small>Virtual Assistant &middot; Storyteller</small>
     </div>
   </a>
-  <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   <ul>
-    <li><a href="index.html" class="navlink">Home</a></li>
-    <li><a href="about.html" class="navlink">About</a></li>
+    <li><a href="about.html"    class="navlink ">About</a></li>
     <li><a href="services.html" class="navlink active">Services</a></li>
-    <li><a href="travel.html" class="navlink">Travel</a></li>
-    <li><a href="work.html" class="navlink nav-cta">Work With Me →</a></li>
+    <li><a href="travel.html"   class="navlink ">Travel</a></li>
+    <li><a href="work.html"     class="navlink nav-cta">Work With Me &rarr;</a></li>
   </ul>
+  <button class="nav-mobile" aria-label="Open menu">&#9776;</button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="travel.html">Travel</a></li>
+    <li><a href="work.html" class="nav-cta">Work With Me &rarr;</a></li>
+  </ul>
+  <div class="mobile-menu-foot">&mdash; made with care, in Manila</div>
+</div>
 
 <a href="work.html" class="floating-cta">
   <span class="floating-cta-dot"></span>
   Available for projects
 </a>
-<div class="page-hero">
-  <div class="page-hero-inner">
-    <div class="eyebrow">Services &amp; Pricing</div>
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="crumb">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <span>Services</span>
+    </div>
     <h1>What I do, <em>and how well.</em></h1>
-    <p class="page-hero-lede">Four ways we can work together. Each one is something I've already done well — for founders, agencies, and creators across the Philippines, Europe, and North America.</p>
+    <p class="page-header-lede">
+      Four ways we can work together. Each one is something I've already done <em>well</em> &mdash; for founders, agencies, and creators across the Philippines, Europe, and North America.
+    </p>
   </div>
-</div>
+</header>
 
-<section style="padding-top: 50px;">
+<section style="padding-top: 60px;">
   <div class="section-inner">
     <div class="services-grid">
       <div class="service">
-        <div class="service-num">No. 01 · from $15/hr · retainer preferred</div>
+        <div class="service-num">No. 01</div>
         <h3>Virtual Assistance <em>&amp; Operations</em></h3>
         <p class="service-tagline">For founders and small teams who need their backend to <em>finally</em> behave.</p>
         <ul>
@@ -62,14 +81,17 @@
           <li>Document hygiene, SOPs, light project management</li>
           <li>Vendor coordination &amp; light bookkeeping admin</li>
           <li>Travel research, itinerary builds, trip prep</li>
+          <li>Database upkeep &amp; CRM tidying</li>
         </ul>
         <div class="service-creds">
           <strong>Credentials</strong>
           5+ years across admin, ops, client support, and executive assistance. Comfortable with Google Workspace, Notion, ClickUp, Slack, Trello, and Canva.
         </div>
+        <p class="service-rate">Starting at <strong>$15/hr</strong> &middot; retainers from <strong>$600/mo</strong></p>
       </div>
+
       <div class="service">
-        <div class="service-num">No. 02 · from $20/hr · 10 or 20 hr/wk packages</div>
+        <div class="service-num">No. 02</div>
         <h3>Executive <em>Assistance</em></h3>
         <p class="service-tagline">The follow-through that quietly makes a founder look like they have it together.</p>
         <ul>
@@ -77,148 +99,97 @@
           <li>Email drafting in your voice</li>
           <li>Task management &amp; gentle, persistent follow-up</li>
           <li>Travel logistics &amp; on-the-road support</li>
+          <li>Light research &amp; briefing notes</li>
         </ul>
         <div class="service-creds">
           <strong>Best for</strong>
-          Solo founders, creators with growing inboxes, and small teams who need a steady second brain — not another middle manager.
+          Solo founders, creators with growing inboxes, and small teams who need a steady second brain &mdash; not another middle manager.
         </div>
+        <p class="service-rate">Starting at <strong>$18/hr</strong> &middot; retainers from <strong>$900/mo</strong></p>
       </div>
+
       <div class="service">
-        <div class="service-num">No. 03 · from $120 per reel · packages available</div>
-        <h3>Virtual Content <em>&amp; UGC</em></h3>
+        <div class="service-num">No. 03</div>
+        <h3>Virtual Content <em>Assistance &amp; UGC</em></h3>
         <p class="service-tagline">Authentic short-form content for brands who don't want to look like ads.</p>
         <ul>
           <li>Travel reels, lifestyle UGC, vertical short-form</li>
           <li>Caption writing &amp; voice-aligned copy</li>
           <li>Posting cadence &amp; light content calendar mapping</li>
-          <li>Filming and editing in iMovie, CapCut, Clipchamp</li>
+          <li>Filming &amp; editing in iMovie, CapCut, Clipchamp</li>
+          <li>Hook-driven scripting for travel &amp; outdoor brands</li>
         </ul>
         <div class="service-creds">
           <strong>Kit</strong>
-          iPhone 13 · DJI Osmo Mobile SE · DJI Neo 1 · a Rhinox backpack and good shoes.
+          iPhone 13 &middot; DJI Osmo Mobile SE &middot; DJI Neo 1 &middot; a Rhinox backpack and good shoes.
         </div>
+        <p class="service-rate">UGC pieces from <strong>$80</strong> &middot; packages from <strong>$400</strong></p>
       </div>
+
       <div class="service">
-        <div class="service-num">No. 04 · project-based · from $350 naming sprints</div>
+        <div class="service-num">No. 04</div>
         <h3>Brand <em>&amp; Creative</em></h3>
         <p class="service-tagline">Naming, voice, and the small details that make a brand feel like a person.</p>
         <ul>
           <li>Brand voice &amp; positioning notes</li>
-          <li>Naming, taglines, email and handle systems</li>
+          <li>Naming, tagline, and email/handle systems</li>
           <li>Mood boards &amp; warm muted visual palettes</li>
           <li>Pitching support &amp; portfolio-building</li>
+          <li>Light copy editing &amp; tone alignment</li>
         </ul>
         <div class="service-creds">
           <strong>Style</strong>
           Diary-like, poetic, emotionally nuanced. Warm without saccharine. Professional without corporate. Selective on niche fit.
         </div>
+        <p class="service-rate">Project-based &middot; from <strong>$250</strong></p>
       </div>
     </div>
+
+    <p style="margin-top: 32px; font-family: var(--serif); font-style: italic; color: var(--ink-soft); font-size: 16px; max-width: 720px;">
+      All rates negotiable for the right fit. Retainer slots fill first; one-off projects accepted between availability.
+    </p>
   </div>
 </section>
 
-<section class="about-page-section">
+<section class="bg-bone">
   <div class="section-inner">
-    <div class="section-eyebrow"><span class="roman">v.</span> How we work</div>
-    <h2>The <em>process,</em> from inquiry to invoice.</h2>
-    <div class="experience-list" style="margin-top: 40px;">
-      <div class="exp-item">
-        <div class="exp-date">Step 01 · 2–3 days</div>
-        <div>
-          <h3>Inquiry &amp; reply</h3>
-          <p class="exp-org">— I read everything personally</p>
-          <p>You send the form. I reply within 2–3 business days, either with a yes-let's-talk, or a no-but-here's-someone-better. No silent inbox.</p>
-        </div>
+    <div class="section-eyebrow"><span class="roman">ii.</span> How we'll work</div>
+    <h2>Process, <em>simplified.</em></h2>
+    <p class="section-lede">No mystery, no surprises. Here's exactly how a project moves from inquiry to handoff.</p>
+
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <h3>Inquiry</h3>
+        <p>You send a project brief. I read it personally and reply within 2&ndash;3 business days if there's a fit.</p>
       </div>
-      <div class="exp-item">
-        <div class="exp-date">Step 02 · 30 minutes</div>
-        <div>
-          <h3>Discovery call</h3>
-          <p class="exp-org">— Free, no pressure</p>
-          <p>We hop on Zoom. You tell me what's broken or building. I ask the kind of questions that surface the real problem. Either of us can say "not a fit" without it being awkward.</p>
-        </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <h3>Discovery call</h3>
+        <p>A 30-minute call (free) to confirm scope, voice, expectations, and whether we genuinely want to work together.</p>
       </div>
-      <div class="exp-item">
-        <div class="exp-date">Step 03 · 48 hrs</div>
-        <div>
-          <h3>Proposal &amp; scope</h3>
-          <p class="exp-org">— Honest about hours and rate</p>
-          <p>You get a one-page scope: what I'll do, what I won't, what it costs, when it ships. No corporate boilerplate. Plain English.</p>
-        </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <h3>Proposal &amp; SOW</h3>
+        <p>A short, plain-English proposal with deliverables, timeline, and price. Half-deposit to start.</p>
       </div>
-      <div class="exp-item">
-        <div class="exp-date">Step 04 · ongoing</div>
-        <div>
-          <h3>Work &amp; rhythm</h3>
-          <p class="exp-org">— Slow is smooth. Smooth is fast.</p>
-          <p>Weekly Loom check-ins or async updates, your preference. Invoiced on the 1st and 15th. We can pause, scale, or close anytime.</p>
-        </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <h3>Work, then handoff</h3>
+        <p>Weekly check-ins, clear communication, and a clean handoff with whatever ongoing care you need.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="section-inner">
-    <div class="section-eyebrow"><span class="roman">vi.</span> Frequently asked</div>
-    <h2>Things people <em>ask first.</em></h2>
-    <div style="margin-top: 36px; max-width: 820px;">
-      <details style="border-bottom: 1px solid var(--line); padding: 18px 0; font-family: var(--serif);">
-        <summary style="cursor: pointer; font-size: 19px; font-weight: 500; color: var(--ink); list-style: none;">Are you a Filipino VA? How is this different from OnlineJobs.ph?</summary>
-        <p style="margin-top: 12px; color: var(--ink-soft); font-size: 16px; line-height: 1.65;">Yes — Manila-based, B.S. Physical Therapy, five years professional admin and ops experience. The difference is taste. I write English at a near-native level, I push back when an idea isn't working, and I treat your brand voice like it's mine. I cost more than the platform average because I'm worth more than the platform average.</p>
-      </details>
-      <details style="border-bottom: 1px solid var(--line); padding: 18px 0; font-family: var(--serif);">
-        <summary style="cursor: pointer; font-size: 19px; font-weight: 500; color: var(--ink); list-style: none;">What time zones do you cover?</summary>
-        <p style="margin-top: 12px; color: var(--ink-soft); font-size: 16px; line-height: 1.65;">I keep EU hours by default and shift earlier or later for North American clients. I currently overlap daily with Berlin, London, New York, and the Philippines. I'll never pretend I'm awake when I'm not.</p>
-      </details>
-      <details style="border-bottom: 1px solid var(--line); padding: 18px 0; font-family: var(--serif);">
-        <summary style="cursor: pointer; font-size: 19px; font-weight: 500; color: var(--ink); list-style: none;">Will you sign an NDA?</summary>
-        <p style="margin-top: 12px; color: var(--ink-soft); font-size: 16px; line-height: 1.65;">Yes — happy to. I work with founders on early-stage products and I take confidentiality seriously. Send me yours, or I can send a simple mutual NDA.</p>
-      </details>
-      <details style="border-bottom: 1px solid var(--line); padding: 18px 0; font-family: var(--serif);">
-        <summary style="cursor: pointer; font-size: 19px; font-weight: 500; color: var(--ink); list-style: none;">Do you take one-off projects?</summary>
-        <p style="margin-top: 12px; color: var(--ink-soft); font-size: 16px; line-height: 1.65;">Yes for content (UGC, naming, brand sprints). Mostly no for ops and EA — those work better as retainers because the value compounds. I'll tell you straight if a one-off doesn't make sense.</p>
-      </details>
-      <details style="border-bottom: 1px solid var(--line); padding: 18px 0; font-family: var(--serif);">
-        <summary style="cursor: pointer; font-size: 19px; font-weight: 500; color: var(--ink); list-style: none;">What's your invoicing setup?</summary>
-        <p style="margin-top: 12px; color: var(--ink-soft); font-size: 16px; line-height: 1.65;">Wise, PayPal, or direct bank transfer for retainers. Half upfront for project work. I send clean line-item invoices on the 1st and 15th of each month for ongoing engagements.</p>
-      </details>
-      <details style="border-bottom: 1px solid var(--line); padding: 18px 0; font-family: var(--serif);">
-        <summary style="cursor: pointer; font-size: 19px; font-weight: 500; color: var(--ink); list-style: none;">Are you taking on UGC brand deals?</summary>
-        <p style="margin-top: 12px; color: var(--ink-soft); font-size: 16px; line-height: 1.65;">Yes, selectively. I prefer travel brands, outdoor gear, hospitality, and slow-living products. I'm not the right fit for fast fashion, alcohol, or anything that needs comedic skit energy. Pitch me at <a href="work.html" style="color: var(--blue); border-bottom: 1px solid var(--blue);">the inquiry form</a>.</p>
-      </details>
-    </div>
+<section class="cta-strip">
+  <h2>Ready to <em>start something?</em></h2>
+  <p>Tell me about the project. I'll be back in touch within 2&ndash;3 business days.</p>
+  <div class="cta-strip-buttons">
+    <a href="work.html" class="btn btn-primary">Send an Inquiry &rarr;</a>
+    <a href="mailto:angeli.everywhere@gmail.com" class="btn btn-secondary">Email Direct</a>
   </div>
 </section>
-
-<section class="inline-cta">
-  <div class="inline-cta-inner">
-    <h2>Sounds like a <em>fit?</em></h2>
-    <p>Tell me what you're building. I'll reply within 2–3 business days.</p>
-    <a href="work.html" class="btn btn-primary">Start a Project →</a>
-  </div>
-</section>
-
-<div class="ribbon">
-  <div class="ribbon-inner">
-    <span>travel storytelling</span><span class="dot">●</span>
-    <span>cinematic vlogs</span><span class="dot">●</span>
-    <span>brand-building</span><span class="dot">●</span>
-    <span>hiking with my Rhinox</span><span class="dot">●</span>
-    <span>mountains</span><span class="dot">●</span>
-    <span>learning German</span><span class="dot">●</span>
-    <span>fitness</span><span class="dot">●</span>
-    <span>quiet mornings</span><span class="dot">●</span>
-    <span>travel storytelling</span><span class="dot">●</span>
-    <span>cinematic vlogs</span><span class="dot">●</span>
-    <span>brand-building</span><span class="dot">●</span>
-    <span>hiking with my Rhinox</span><span class="dot">●</span>
-    <span>mountains</span><span class="dot">●</span>
-    <span>learning German</span><span class="dot">●</span>
-    <span>fitness</span><span class="dot">●</span>
-    <span>quiet mornings</span><span class="dot">●</span>
-  </div>
-</div>
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
@@ -226,9 +197,8 @@
       <p>Filipino freelance virtual assistant, travel storyteller, and creator. Operations and authentic UGC for founders, creators, and brands who care how things feel.</p>
     </div>
     <div class="footer-col">
-      <h5>Pages</h5>
+      <h5>The site</h5>
       <ul>
-        <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="travel.html">Travel</a></li>
@@ -239,23 +209,23 @@
       <h5>Find me</h5>
       <ul>
         <li><a href="https://instagram.com/angeli.everywhere" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://tiktok.com/@angeli.everywhere" target="_blank" rel="noopener">TikTok</a></li>
-        <li><a href="https://youtube.com/@angeli.everywhere" target="_blank" rel="noopener">YouTube</a></li>
-        <li><a href="https://linkedin.com/in/angeliyumul" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://tiktok.com/@angeli.everywhere"   target="_blank" rel="noopener">TikTok</a></li>
+        <li><a href="https://youtube.com/@angeli.everywhere"  target="_blank" rel="noopener">YouTube</a></li>
+        <li><a href="https://linkedin.com/in/angeliyumul"     target="_blank" rel="noopener">LinkedIn</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h5>Hire me on</h5>
       <ul>
-        <li><a href="https://upwork.com" target="_blank" rel="noopener">Upwork</a></li>
-        <li><a href="https://onlinejobs.ph" target="_blank" rel="noopener">OnlineJobs.ph</a></li>
-        <li><a href="https://hireremote.ph" target="_blank" rel="noopener">HireRemote.ph</a></li>
+        <li><a href="https://upwork.com"        target="_blank" rel="noopener">Upwork</a></li>
+        <li><a href="https://onlinejobs.ph"     target="_blank" rel="noopener">OnlineJobs.ph</a></li>
+        <li><a href="https://hireremote.ph"     target="_blank" rel="noopener">HireRemote.ph</a></li>
         <li><a href="mailto:angeli.everywhere@gmail.com">Direct email</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 ANGELI YUMUL · ALL RIGHTS RESERVED</span>
+    <span>&copy; 2026 ANGELI YUMUL &middot; ALL RIGHTS RESERVED</span>
     <em>"Slow is smooth. Smooth is fast."</em>
     <span>MADE WITH CARE, IN MANILA</span>
   </div>
